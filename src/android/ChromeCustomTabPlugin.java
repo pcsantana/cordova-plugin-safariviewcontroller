@@ -139,6 +139,11 @@ public class ChromeCustomTabPlugin extends CordovaPlugin{
                 }
                 return true;
             }
+			// https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/issues/105#issuecomment-398363652
+			case "hide": {
+              	cordova.getActivity().startActivity(new Intent(cordova.getActivity(), cordova.getActivity().getClass()));
+              	return true;
+            }
         }
         return false;
     }
